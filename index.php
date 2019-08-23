@@ -33,8 +33,18 @@
 */
 
 
+/*
 	// Exibe um usuário usando o login e a senha (autenticação)
 	$usuario = new Usuario();
 	$usuario->login("admin", "123456");
+	echo $usuario;
+*/
+
+
+	// Inserir usuário
+	$usuario = new Usuario();
+	$usuario->setDeslogin("batista");
+	$usuario->setDessenha("123456");
+	$usuario->insert();
 	echo $usuario;
 ?>
