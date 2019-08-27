@@ -41,10 +41,22 @@
 */
 
 
-	// Inserir usuário
-	$usuario = new Usuario();
-	$usuario->setDeslogin("batista");
-	$usuario->setDessenha("123456");
+/*
+	// Inserir usuário sem construct
+	//$usuario = new Usuario();
+	//$usuario->setDeslogin("rogers");
+	//$usuario->setDessenha("123456");
+	//$usuario->insert();
+	//echo $usuario;
+
+	// Inserir com construct
+	$usuario = new Usuario("silva", "123456");
 	$usuario->insert();
+	echo $usuario;
+*/
+
+	$usuario = new Usuario();
+	$usuario->loadById(3);
+	$usuario->update("silvana", "456789");
 	echo $usuario;
 ?>

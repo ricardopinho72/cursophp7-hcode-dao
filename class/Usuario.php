@@ -137,6 +137,25 @@
 		}
 
 
+		public function update($login, $password) {
+
+			$this->setDeslogin($login);
+			$this->setDessenha($password);
+
+			$sql = new sql();
+
+			$sql->query("UPDATE hcode_php_tb_usuarios SET deslogin = :LOGIN, dessenha = :PASSWORD WHERE idusuario = :ID", array(':LOGIN' => $this->getDeslogin(), ':PASSWORD' => $this->getDessenha(), ':ID' => $this->getIdusuario()));
+		}
+
+
+		public function __construct($login = "", $password = "") {
+
+			$this->setDeslogin($login);
+			$this->setDessenha($password);
+
+		}
+
+
 		public function __toString() {
 
 			return json_encode(array(
