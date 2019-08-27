@@ -55,8 +55,19 @@
 	echo $usuario;
 */
 
+
+/*
+	// Editar usuário
 	$usuario = new Usuario();
 	$usuario->loadById(3);
 	$usuario->update("silvana", "456789");
+	echo $usuario;
+*/
+
+
+	// Deletar usuário
+	$usuario = new Usuario();
+	$usuario->loadById(3);
+	$usuario->delete();
 	echo $usuario;
 ?>

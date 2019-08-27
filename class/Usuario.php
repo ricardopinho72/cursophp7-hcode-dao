@@ -125,7 +125,7 @@
 
 		public function insert() {
 
-			$sql = new sql();
+			$sql = new Sql();
 
 			$results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(':LOGIN' => $this->getDeslogin(), ':PASSWORD' => $this->getDessenha()));
 
@@ -142,9 +142,22 @@
 			$this->setDeslogin($login);
 			$this->setDessenha($password);
 
-			$sql = new sql();
+			$sql = new Sql();
 
 			$sql->query("UPDATE hcode_php_tb_usuarios SET deslogin = :LOGIN, dessenha = :PASSWORD WHERE idusuario = :ID", array(':LOGIN' => $this->getDeslogin(), ':PASSWORD' => $this->getDessenha(), ':ID' => $this->getIdusuario()));
+		}
+
+
+		public function delete() {
+
+			$sql = new Sql();
+
+			$sql->query("DELETE FROM hcode_php_tb_usuarios WHERE idusuario = :ID", array(':ID' => $this->getIdusuario()));
+
+			$this->setIdusuario(0);
+			$this->setDeslogin("");
+			$this->setDessenha("");
+			$this->setDtcadastro(new DateTime());
 		}
 
 
